@@ -1,0 +1,22 @@
+Les modifications ajouté à la maquette:
+
+---- Thème de la page ----
+Les couleurs dominantes:
+L'arrière plan de la page: #276363
+Les sections, boutons et élèments: #bec947
+
+Le choix de couleurs est fait en lien avec le thème de la banière principale qui se trouve dans l'entête de la page. Selon moi, ces couleurs conviennent bien avec le sujet principal du site.
+
+Les images choisies montrent des animaux et une interaction des gens avec ceux. Le but est d'attirer l'attention du client de faire la visite et de vivre le même expérience.
+
+---- Menu principale ----
+Le menu peut se transformer selon les dimensions de l'écran. Sur les écrans des téléphones, le menu se transforme en colonne, pour ne pas compresser le contenu des boutons. Le premier bouton est attribué à l'icon sans l'interactivité.
+
+---- Le contenu ----
+Quelques sections du contenu sur la page se déplacent en colonne dépedament de la taille de l'écran. Les sections du contenu se deplacent pour garder le contenu visible: la partie avec la carte, les deux articles qui suivent le menu principal et les boîtes des commentaires de journalistes.
+
+---- Le pied de page ----
+Le pied de page a été completement transformé pour rendre le deuxième menu plus familial comme sur les autres sites populaires: amazon, Facebook, etc. Un logo est ajouté pour une presentatif du ZOO, son adresse et téléphone.
+
+
+Mykhaylo Kuzmin

@@ -316,7 +316,7 @@ nav {
 
 /* "Stickiness" */
 nav {
-  position: relative;
+  position: sticky;
   z-index: 99;
   top: 0;
 }

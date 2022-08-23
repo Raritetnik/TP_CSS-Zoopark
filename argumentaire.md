@@ -57,7 +57,8 @@ se situent dans la partie supérieur de la page.
   Gabriel Roy-Rizzoli
 
 
------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
-Les modifications ajouté à la maquette.
+
+
 
