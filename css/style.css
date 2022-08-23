@@ -340,6 +340,8 @@ nav>a {
 /* arrondi les extremités du navbar */
 nav>a:first-child {
   border-radius: 0px 0 0 10px;
+  pointer-events: none;
+  background-color: var(--color-button_hover);
 }
 
 nav>a:last-child {
@@ -530,6 +532,12 @@ body>footer {
   margin: 0 auto;
 }
 /* ====================*/
+
+.menu-logo {
+  background-image: none;
+  background-color: rgb(0, 0, 0,0);
+}
+
 .image-logo {
   max-height: 200px;
   max-width: 200px;
@@ -579,10 +587,15 @@ body>footer {
 }
 
 /*  */
-
-@media all and (max-width: 730px) and (min-width: 501x){
+@media all and (max-width: 550px){
   :root {
     --size-font: 12px;
+  }
+}
+
+@media all and (max-width: 730px) and (min-width: 551px){
+  :root {
+    --size-font: 14px;
   }
 
   body>footer {
@@ -590,14 +603,16 @@ body>footer {
   }
 
 }
-
-@media all and (max-width: 1150px) and (min-width: 731px){
+@media all and (max-width: 1150px) and (min-width:730px) {
   :root {
-    --size-font: 14px;
+    --size-font: 16px;
   }
+}
+
+@media all and (max-width: 1150px) {
 
   #modification-image-zebre {
-    object-position: 0;
+    object-position: 0px;
   }
 
   body {
@@ -605,6 +620,7 @@ body>footer {
     flex-direction: column;
     gap: 0px;
   }
+
   nav {
     display: flex;
     position: relative;
@@ -612,7 +628,9 @@ body>footer {
     width: 100%;
     max-width: 100%;
     min-height: 200px;
+    padding-bottom: 60px;
   }
+
   nav>a {
     width: 100%;
     border-radius: 0px 0 0 0;
