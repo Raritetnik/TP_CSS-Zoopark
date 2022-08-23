@@ -1,0 +1,696 @@
+    /***** ANCHOR ROOT *****/
+
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Fredoka+One&display=swap');
+
+:root {
+  --color-button: #bec947;
+  --color-button_hover: #7a8130;
+
+  --color_background: #276363;
+
+  --reaction-transition: 0.4s;
+
+
+  --color-font-article: rgb(0, 0, 0);
+  --color-font-page: rgb(255, 255, 255);
+  --size-font: 18px;
+  --font-normal: 'Catamaran', sans-serif;
+  --font-titles: 'Fredoka One', cursive;
+}
+
+/* Rétablir les marges intérieures & extérieures sur tout */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style « prototype » pour les images vides */
+img {
+  background-color: rgba(0,0,0,0.1);
+  background-image: linear-gradient(to top left,
+          rgba(0,0,0,0) 0%,
+          rgba(0,0,0,0) calc(50% - 1px),
+          rgba(0,0,0,.1) 50%,
+          rgba(0,0,0,0) calc(50% + 1px),
+          rgba(0,0,0,0) 100%),
+      linear-gradient(to top right,
+          rgba(0,0,0,0) 0%,
+          rgba(0,0,0,0) calc(50% - 1px),
+          rgba(0,0,0,.1) 50%,
+          rgba(0,0,0,0) calc(50% + 1px),
+          rgba(0,0,0,0) 100%);
+  border-radius: 3px;
+  object-fit: cover;
+}
+
+/***** ANCHOR RYTHME ET RÈGLES BASES *****/
+
+/* Rythme vertical espacé pour bien dégager les principaux conteneurs de contenu */
+body>*+* {
+  margin-top: 80px;
+}
+
+/* Rythme vertical de base pour tous les éléments de contenu */
+*+p, *+img, *+a, *+h1, *+h2, *+h3, *+h4, *+h5, *+h6 {
+  margin-top: 20px;
+}
+
+*+small {
+  margin-top: 10px;
+}
+
+/* Limiter et centrer les principales sections de contenu */
+body>section {
+  max-width: 100rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Rythme vertical de base pour les éléments de section */
+section>*+* {
+  margin-top: 40px;
+}
+
+/* Base typographique à être héritée */
+html {
+  font-family: var(--font-normal);
+  line-height: 1.5625;
+  background-color: var(--color_background);
+  color: var(--color-font-page);
+}
+
+/* Largeur maximale de toute ligne de paragraphe pour une lisibilité adéquate */
+p {
+  max-width: 85ch;
+}
+
+/* Interlignage propre aux titres (moins espacé que le contenu courant) */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-titles);
+  font-weight: 300;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Échelle typographique */
+h1 {
+  font-size: calc(var(--size-font)*3.25);
+}
+
+h2 {
+  font-size: calc(var(--size-font)*1.8);
+}
+
+h3 {
+  font-size: calc(var(--size-font)*1.55);
+}
+
+h4 {
+  font-size: calc(var(--size-font)*1.4);
+}
+
+h5, .large-button {
+  font-size: calc(var(--size-font)*1.25);
+}
+
+a {
+  font-size: calc(var(--size-font)*1.1);
+}
+
+small {
+  font-size: calc(var(--size-font)*0.95);
+}
+
+/* Pour avoir plus de controle sur les éléments enligne utilisés seuls */
+a {
+  display: inline-block;
+  line-height: 1.4;
+  color: var(--color-font-article);
+}
+
+/* Transition des boutons */
+a:hover {
+  background-color: var(--color-button_hover);
+  color: var(--color-font-section);
+}
+
+a:active {
+  box-shadow: none;
+}
+
+/* Transition des liens */
+small>a:hover {
+  color: var(--color-font-page);
+  background-color: var(--color-button);
+  transition: var(--reaction-transition);
+}
+
+
+    /***** ANCHOR UTILITY CLASSES *****/
+
+
+    /*** Boutons ***/
+
+/* Format des boutons standards */
+.button {
+  padding: .4125em .75em;
+  background-color: var(--color-button);
+  text-decoration: none;
+  border-radius: 10px;
+  transition-duration: 100ms;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+  /*** Éléments base flex ***/
+
+/* Contexte flex horizontal avec marge par espacement */
+.flex-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Contexte flex vertical avec alignement au centre */
+.flex-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+  /*** Largeur des contenus ***/
+
+/* Largeur de base de tout enfant de la grille */
+section>div>* {
+  width: calc(50% - 10px);
+}
+
+/* Formats tiers */
+.one-third {
+  width: calc(33% - 10px);
+}
+
+.two-thirds {
+  min-width: calc(67% - 10px);
+}
+
+
+  /*** Format texte sur image ***/
+
+.content-on-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.content-on-image>img {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+.content-on-image>* {
+  position: relative;
+  margin: 0;
+}
+
+/* Format des boutons superposants les images */
+.content-on-image a:not(.button) {
+  max-width: 30ch;
+  text-align: center;
+  background-color: var(--color-button);
+  opacity: 0.7;
+  color: var(--color-font-article);
+
+  transition: var(--reaction-transition);
+}
+
+.content-on-image a:hover {
+  background-color: var(--color-button_hover);
+  opacity: 1;
+  transition: var(--reaction-transition);
+}
+
+/* Rythme dans les éléments successifs */
+.content-on-image>*+* {
+  margin-top: 20px;
+}
+
+
+  /*** Bloques de couleur ***/
+
+.colored-block {
+  background-color: var(--color-button);
+  border-radius: 3px;
+  }
+
+/* pour centrer à l'intérieur des bloques de couleur */
+.colored-block>* {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  color: var(--color-font-boite);
+}
+
+/* Pour diminuer la distance entres éléments successifs */
+.colored-block>*+* {
+  padding-top: 10px;
+}
+
+
+  /*** Voiles ***/
+
+.veil-black, .veil-white {
+  line-height: 1;
+  border-radius: 10px;
+  padding: 4px 10px;
+}
+
+
+  /*** Shadows ***/
+.box-shadow {
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+}
+
+
+/***** SECTION RÈGLES SPÉCIFIQUES *****/
+
+/*** ANCHOR header ***/
+
+/* Donner un style « boîte de couleur » et forcer la pleine largeur */
+body>header {
+  margin: 0;
+  min-height: 500px;
+}
+
+/* Bouton sur une ligne */
+header.content-on-image>.button {
+  white-space: nowrap;
+}
+
+
+  /*** ANCHOR navbar ***/
+
+/* sert de Y offset à la barre de navigation en position initiale */
+[id=empty-space] {
+  min-height: 500px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+  max-height: 60px;
+  width: 90vw;
+  max-width: 100rem;
+}
+
+/* "Stickiness" */
+nav {
+  position: relative;
+  z-index: 99;
+  top: 0;
+}
+
+nav>a {
+  flex: 1 1 0;
+  background-color: var(--color-button);
+  padding: .4125em .75em;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  text-decoration: none;
+  margin-top: inherit;
+  white-space: nowrap;
+  border: 1px solid white;
+
+  transition: var(--reaction-transition);
+}
+
+
+/* arrondi les extremités du navbar */
+nav>a:first-child {
+  border-radius: 0px 0 0 10px;
+}
+
+nav>a:last-child {
+  border-radius: 0 0px 10px 0;
+}
+
+
+  /*** ANCHOR mission statement ***/
+
+[id=mission-statement] h2 {
+  max-width: 50ch;
+  margin: auto;
+  /* Marge doit prendre en compte le navbar en position absolue */
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+[id=mission-statement] article {
+  min-height: 350px;
+  justify-content: end;
+}
+
+[id=mission-statement] .content-on-image a {
+	padding: 20px;
+  width: calc(100% - 40px);
+  max-width: none;
+  border-radius: 0 0 3px 3px;
+}
+
+
+  /*** ANCHOR location ***/
+
+[id=map] * {
+  align-items: stretch;
+}
+
+
+/*** ANCHOR plus ***/
+
+[id=plus] img {
+  height: 200px;
+  width: 100%;
+  align-items: stretch;
+}
+
+[id=plus] div {
+  height: 200px;
+  align-items: flex-start;
+}
+
+/* Augmente la marge à gauche du texte dans les cases de couleur*/
+[id=plus] div.colored-block>* {
+  padding: 0 0 0 30px;
+  text-align: left;
+}
+
+
+  /*** ANCHOR reviews ***/
+
+[id=reviews] {
+  min-height: 420px;
+  justify-content: flex-end;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Boite de couleur (pour varier le rythme de la page) */
+[id=reviews]>img {
+  margin: auto 0;
+}
+
+/* Écarte le titre des boites de couleurs et laisse le fond texturé respirer */
+[id=reviews].content-on-image>h3 {
+  margin-bottom: 60px;
+}
+
+/* Pour que le flex horizontal prenne toute la largeur */
+[id=reviews].content-on-image>div {
+  margin-bottom: 20px;
+  max-width: 100rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Rapproche le titre de son sous-titre */
+[id=reviews] .colored-block>h5 {
+  padding-bottom: 0;
+}
+
+[id=reviews] .colored-block>small {
+  text-align: center;
+}
+
+  /*** ANCHOR call to action ***/
+
+/* Dégage du reste de la page pour créer emphase */
+[id=call-action] {
+  margin-top: 120px;
+}
+
+[id=call-action] article {
+  width: 100%;
+}
+/* Texte plus gros */
+[id=call-action] a {
+  margin-top: 40px;
+  font-size: calc(var(--size-font) * 1.5);
+}
+
+[id=call-action] small {
+  font-size: calc(var(--size-font) * 1.1);
+}
+/* Animation unique */
+[id=call-action] a:hover {
+  text-decoration: underline;
+}
+
+[id=call-action] a {
+  text-decoration: underline 0.1em rgba(0, 0, 0, 0);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 200ms, text-underline-offset 200ms;
+}
+
+[id=call-action] a:hover,
+[id=call-action] a:focus {
+  text-decoration-color: rgba(255, 255, 255, 1);
+}
+
+  /*** ANCHOR footer ***/
+
+/* Donner un style « boîte de couleur » et le dégager des côtés de la fenêtre */
+body>footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--color-button);
+}
+
+footer>div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Établir un contexte vertical d'alignement
+absolument centré pour le contenu */
+body>footer {
+  margin-top: 160px;
+}
+
+/* Barre sombre */
+.footer-infos {
+  background-color: var(--color-main-darkened);
+  margin: 0;
+}
+
+.footer-infos-contenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 100rem;
+}
+
+.couleur-article {
+  color: var(--color-font-article);
+}
+
+
+/* Infos additionnelles */
+.footer-infos-contenu {
+  font-style: italic;
+  color: var(--color-font-section);
+}
+
+/* exception à la règle générale */
+.footer-infos-contenu small {
+  margin-top: 0;
+
+}
+
+.footer-infos-contenu>div {
+  max-width: 100rem;
+  margin: 0 auto;
+}
+/* ====================*/
+.image-logo {
+  max-height: 200px;
+  max-width: 200px;
+  padding: 15px 0;
+  background-color: rgb(0, 0, 0,0);
+  background-image: none;
+}
+
+.bouton_pied-page {
+  text-align: center;
+  text-decoration: none;
+}
+
+.bouton_pied-page:hover {
+  text-decoration: underline;
+  background-color: inherit;
+
+  transition: var(--reaction-transition);
+}
+
+#modification-image-lion {
+  object-position: -100px 300px;
+}
+
+#modification-image-zebre {
+  object-position: 0 200px;
+}
+
+/* ====================== */
+
+@media all and (max-width: 500px){
+  body>footer {
+    flex-direction: column;
+  }
+
+  .footer-infos-contenu {
+    align-items: center;
+  }
+  .image-logo{
+    max-width: 300px;
+  }
+
+  footer>div {
+    padding-bottom: 20px;
+  }
+
+}
+
+/*  */
+
+@media all and (max-width: 730px) and (min-width: 501x){
+  :root {
+    --size-font: 12px;
+  }
+
+  body>footer {
+    margin-top: 120px;
+  }
+
+}
+
+@media all and (max-width: 1150px) and (min-width: 731px){
+  :root {
+    --size-font: 14px;
+  }
+
+  #modification-image-zebre {
+    object-position: 0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+  nav {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    min-height: 200px;
+  }
+  nav>a {
+    width: 100%;
+    border-radius: 0px 0 0 0;
+    padding: 0;
+  }
+  nav > a:is(:last-child,:first-child) {
+    border-radius: 0px;
+  }
+
+  #mission-statement h2 {
+    position: relative;
+    display: block;
+  }
+
+  .flex-horizontal.phone {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 40px;
+  }
+  .one-third {
+    width: 100%;
+  }
+  section > div > * {
+    width: 100%;
+  }
+}
+
+@media all and (min-width:1151px) {
+  body>section {
+    max-width: 120rem;
+  }
+}
+/*
+MEDIA QUERY (à la pareto)
+@media screen and (max-width: 1000px){
+  :root {
+    --size-font: 16px;
+  }
+}
+
+@media all and (max-width: 700px){
+  :root {
+    --size-font: 14px;
+  }
+}*
+/
+
+/* ====  Changemenent de l'écran  =========
+ Écran large
+@media all and (min-width: 1701){
+  html {
+    background-color: aqua;
+  }
+}
+
+ Portable
+@media all and (max-width: 1700px) and (min-width: 1150){
+  html {
+    background-color: blueviolet;
+  }
+}
+
+/* Tablette
+@media all and (max-width: 1149) and (min-width: 500){
+  html {
+    background-color: green;
+  }
+  nav{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+Téléphone
+@media all and (max-width: 499){
+  html {
+    background-color: tomato;
+  }
+}*/
